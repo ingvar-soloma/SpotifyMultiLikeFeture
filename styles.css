@@ -1,0 +1,91 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    text-align: center;
+    margin: 20px;
+    max-width: 320px;
+}
+
+.heading {
+    color: #1db954;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    width: max-content;
+    background-color: #1db954;
+    color: #ffffff;
+    border: none;
+    border-radius: 20px;
+    padding: 0 20px;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    margin: 0 10px;
+}
+
+.btn:hover {
+    background-color: #1ed760;
+}
+
+/* Dark theme styles */
+body.dark {
+    background-color: #121212;
+}
+
+.container.dark {
+    color: #ffffff;
+}
+
+.heading.dark {
+    color: #1db954;
+}
+
+.btn.dark {
+    background-color: #1db954;
+    color: #ffffff;
+}
+
+.btn.dark:hover {
+    background-color: #1ed760;
+}
+
+.disabled .btn {
+    background-color: #808080;
+    cursor: not-allowed;
+}
+
+.disabled .btn:hover {
+    background-color: #808080;
+}
+
+.message {
+    display: none;
+    color: #ffffff;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.counter-container {
+    display: none;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.counter {
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.counter-label {
+    font-weight: bold;
+}
