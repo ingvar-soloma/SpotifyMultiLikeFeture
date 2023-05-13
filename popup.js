@@ -1,15 +1,18 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const likeButton = document.getElementById("likeButton");
     const message = document.getElementById("message");
     const counterContainer = document.getElementsByClassName("counter-container")[0];
 
-    likeButton.addEventListener("click", function() {
-        chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
+    const dislikeCounter = document.getElementById("dislikeCounter");
+    const likeCounter = document.getElementById("likeCounter");
+
+    likeButton.addEventListener("click", function () {
+        chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
             chrome.tabs.executeScript(tabs[0].id, { file: "content.js" });
         });
     });
 
-    chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
         const tab = tabs[0];
         const body = document.body;
 
@@ -18,10 +21,12 @@ document.addEventListener("DOMContentLoaded", function() {
             message.style.display = "none";
             counterContainer.style.display = "flex";
 
-            chrome.tabs.sendMessage(tab.id, { action: "getElements" }, function(response) {
-                const { likeButtons, dislikeButtons} = response;
-                likeCounter.innerText = likeButtons.length;
-                dislikeCounter.innerText = dislikeButtons.length;
+            chrome.tabs.executeScript(tab.id, { file: "counters.js" }, function () {
+                chrome.tabs.sendMessage(tab.id, { action: "getElements" }, function (response) {
+                    const { likeButtons, dislikeButtons } = response;
+                    likeCounter.innerText = likeButtons.length;
+                    dislikeCounter.innerText = dislikeButtons.length;
+                });
             });
 
         } else {

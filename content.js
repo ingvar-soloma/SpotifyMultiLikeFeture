@@ -1,4 +1,4 @@
-function main() {
+async function main() {
     const playlistContainer = document.querySelector('[data-testid="playlist-tracklist"]');
     let likedCount = 0;
     let likeButtons = document.querySelectorAll('[data-testid="add-button"][aria-checked="false"][tabindex="-1"]');
@@ -22,23 +22,19 @@ function main() {
         }
     }
 
-    async function container() {
-        while (true) {
-            if (likeButtons.length === 0) {
-                console.log('Finished with ' + likedCount + ' songs liked');
-                break;
-            }
-
-            await likeAllSongs(likeButtons);
-            playlistContainer.scrollTo({
-                top: playlistContainer.scrollHeight,
-                behavior: 'smooth'
-            });
-            likeButtons = document.querySelectorAll('[data-testid="add-button"][aria-checked="false"][tabindex="-1"]');
+    while (true) {
+        if (likeButtons.length === 0) {
+            console.log('Finished with ' + likedCount + ' songs liked');
+            break;
         }
-    }
 
-    container();
+        await likeAllSongs(likeButtons);
+        playlistContainer.scrollTo({
+            top: playlistContainer.scrollHeight,
+            behavior: 'smooth'
+        });
+        likeButtons = document.querySelectorAll('[data-testid="add-button"][aria-checked="false"][tabindex="-1"]');
+    }
 }
 
 main();
