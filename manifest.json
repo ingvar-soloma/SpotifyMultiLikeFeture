@@ -3,6 +3,9 @@
   "name": "Spotify Liker",
   "version": "1.0",
   "description": "Automatically like songs on Spotify",
+  "author": "Ihor Solomianiy",
+  "email": "ingvar.soloma@gmail.com",
+  "homepage_url": "https://github.com/ingvar-soloma/SpotifyMultiLikeFeture",
   "permissions": ["activeTab"],
   "background": {
     "scripts": ["background.js"],
