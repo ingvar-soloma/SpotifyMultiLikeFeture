@@ -8,11 +8,20 @@
 <body class="disabled">
 <div class="container">
     <h1 class="heading">Spotify Liker</h1>
-    <button id="likeButton" class="btn">Like Songs</button>
+
     <p id="message" class="message">Please open the Spotify site to use this feature.</p>
-    <div class="counter-container">
-        <p class="counter"><span class="counter-label">Liked:</span> <span id="likeCounter">0</span></p>
-        <p class="counter"><span class="counter-label">Not Liked:</span> <span id="dislikeCounter">0</span></p>
+    <div id="spotify-section">
+        <div class="song-section">
+            <h2 class="section-heading">Songs Without Like</h2>
+            <ul id="songsListContainer" class="song-list"></ul>
+        </div>
+
+        <button id="likeButton" class="btn">Like Songs</button>
+
+        <div class="counter-container" id="counter-container">
+            <p class="counter"><span class="counter-label">Liked:</span> <span id="likeCounter">0</span></p>
+            <p class="counter"><span class="counter-label">Not Liked:</span> <span id="dislikeCounter">0</span></p>
+        </div>
     </div>
 </div>
 </body>
